@@ -1,7 +1,7 @@
 import instance from "@/utils/request"; 
-import { Rsp, User_Req } from "@/model/"
+import { Login_Req, Rsp } from "@/model/"
 
-export function login(params:User_Req):Promise<{data: Rsp}>{
+export function login(params:Login_Req):Promise<{data: Rsp}>{
   return instance({
     method: 'post',
     url: 'login',
