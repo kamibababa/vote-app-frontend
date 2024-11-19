@@ -1,6 +1,6 @@
 <template>
   <el-card class="box-card">
-    <el-form :model="regInfo" label-width="auto" >
+    <el-form :model="regInfo" label-width="60px" >
       <el-form-item label="用户名">
         <el-input v-model="regInfo.name" placeholder="用户名" />
       </el-form-item>

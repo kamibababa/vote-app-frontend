@@ -8,7 +8,7 @@
 
     <el-container>
       <el-aside width="200px">
-        <el-menu router background-color="#000" text-color="#fff">
+        <el-menu router background-color="#000" text-color="#fff" :default-openeds="['/vote']">
           <el-sub-menu index="/vote">
             <template #title>
               <el-icon>
