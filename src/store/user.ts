@@ -6,7 +6,7 @@ import { ref } from 'vue'
 export const useUserStore = defineStore('user', () => {
   const userInfo = ref<UserInfo | null>(null)
 
-  function setUserInfo(value: UserInfo) {
+  function setUserInfo(value: UserInfo | null) {
     userInfo.value = value;
     // setUser(value)
   }
