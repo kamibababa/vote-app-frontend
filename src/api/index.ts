@@ -8,7 +8,7 @@ export function login(params:User_Req):Promise<{data: Rsp}>{
     data:params
   })
 }
-export function vote(cid:number):Promise<{data: Rsp}>{
+export function vote(cid:string):Promise<{data: Rsp}>{
   return instance({
     method: 'post',
     url: `vote/${cid}`

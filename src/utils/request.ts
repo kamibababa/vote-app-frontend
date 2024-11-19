@@ -13,7 +13,7 @@ instance.interceptors.request.use(function (config) {
 
   if(userInfo.value !== null){
   // Do something before request is sent
-    config.headers.Authorization = `Bearer ${userInfo.value}`
+    config.headers.Authorization = `Bearer ${userInfo.value.token}`
   }
 
   return config;

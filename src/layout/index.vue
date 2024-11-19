@@ -1,43 +1,22 @@
 <template>
   <el-container class="layout-container-demo">
     <el-header style="text-align: right; font-size: 12px">
-      <!-- <div class="toolbar">
-        <el-dropdown>
-          <el-icon style="margin-right: 8px; margin-top: 1px">
-            <setting />
-          </el-icon>
-          <template #dropdown>
-            <el-dropdown-menu>
-              <el-dropdown-item>View</el-dropdown-item>
-              <el-dropdown-item>Add</el-dropdown-item>
-              <el-dropdown-item>Delete</el-dropdown-item>
-            </el-dropdown-menu>
-          </template>
-        </el-dropdown>
-        <span>Tom</span>
-      </div> -->
+      <div class="toolbar">
+        <span>{{userInfo?.name}}</span>
+      </div>
     </el-header>
 
     <el-container>
       <el-aside width="200px">
         <el-menu router background-color="#000" text-color="#fff">
-          <el-sub-menu index="/article">
+          <el-sub-menu index="/vote">
             <template #title>
               <el-icon>
                 <message />
-              </el-icon>文章管理
+              </el-icon>投票管理
             </template>
-            <el-menu-item index="/article/all_article">全部文章</el-menu-item>
-            <el-menu-item index="/article/my_article">my_article</el-menu-item>
-          </el-sub-menu>
-          <el-sub-menu index="/comment">
-            <template #title>
-              <el-icon>
-                <message />
-              </el-icon>评论管理
-            </template>
-            <el-menu-item index="/comment/all_comment">all_comment</el-menu-item>
-            <el-menu-item index="/comment/my_comment">my_comment</el-menu-item>
+            <el-menu-item index="/vote/do_vote">投票</el-menu-item>
+            <el-menu-item index="/vote/check_vote">查看投票</el-menu-item>
           </el-sub-menu>
         </el-menu>
       </el-aside>
@@ -49,7 +28,12 @@
 </template>
 
 <script lang="ts" setup>
-import { Message, Setting } from '@element-plus/icons-vue'
+import { Message } from '@element-plus/icons-vue'
+import { useUserStore } from '@/store/user'
+import { storeToRefs } from 'pinia'
+
+const store = useUserStore()
+let { userInfo } = storeToRefs(store)
 
 </script>
 

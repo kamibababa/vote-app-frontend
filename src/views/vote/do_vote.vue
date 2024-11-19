@@ -1,8 +1,7 @@
 <template>
-  all_aritcle
   <el-form>
     <el-form-item>
-      <el-select v-model="candidate_id" placeholder="Select" style="width: 240px">
+      <el-select v-model="candidate_id" placeholder="选择候选人" style="width: 240px">
         <el-option v-for="item in candidates" :key="item.id" :label="item.name" :value="item.id" />
       </el-select>
     </el-form-item>
@@ -27,13 +26,13 @@ function do_vote() {
   vote(candidate_id.value).then(res => {
     if (res.data.code === 200) {
       ElMessage({
-        message: 'Congrats, this is a success message.',
+        message: res.data.msg,
         type: 'success',
       })
     }
     else {
       ElMessage({
-        message: 'Warning, this is a warning message.',
+        message: res.data.msg,
         type: 'warning',
       })
     }

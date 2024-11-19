@@ -12,49 +12,30 @@ const routes = [
     component: () => import('@/layout/index.vue'),
     children:[
       {
-        path: 'article',
-        name: '文章管理',
+        path: 'vote',
+        name: '投票管理',
         meta:{
           icon:'food'
         },
         children:[
           { 
-            path: '/article/all_article', 
-            name: '全部文章',
-            component: () => import('@/views/article/all_article.vue') 
+            path: '/vote/do_vote', 
+            name: '投票',
+            component: () => import('@/views/vote/do_vote.vue') 
           },
           { 
-            path: '/article/my_article', 
-            name: 'my_article',
-            component: () => import('@/views/article/my_article.vue') 
-          }
-        ]
-      },
-      {
-        path: 'comment',
-        name: 'comment',
-        meta:{
-          icon:'edit'
-        },
-        children:[
-          { 
-            path: '/comment/all_comment', 
-            name: 'all_comment',
-            component: () => import('@/views/comment/all_comment.vue') 
-          },
-          { 
-            path: '/comment/my_comment', 
-            name: 'my_comment',
-            component: () => import('@/views/comment/my_comment.vue') 
+            path: '/vote/check_vote', 
+            name: '查看投票',
+            component: () => import('@/views/vote/check_vote.vue') 
           }
         ]
       }
     ]
   },
   { 
-    path: '/element_register', 
-    name: 'element_register',
-    component: () => import('@/views/ElementRegister.vue') 
+    path: '/login', 
+    name: 'login',
+    component: () => import('@/views/Login.vue') 
   },
 ]
 
@@ -68,7 +49,7 @@ router.beforeEach((to) => {
   const store = useUserStore()
   let { userInfo } = storeToRefs(store)
   if(to.meta.requireAuth && !userInfo.value){
-    return '/element_register'
+    return '/login'
   }
 })
 
